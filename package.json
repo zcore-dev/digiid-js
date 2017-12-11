@@ -1,6 +1,6 @@
 {
-  "name": "bitid",
-  "description": "JavaScript implementation of the BitID authentication protocol: https://github.com/bitid/bitid",
+  "name": "digiid",
+  "description": "JavaScript implementation of the DigiID authentication protocol: https://github.com/bitid/bitid",
   "version": "0.0.3",
   "author": {
     "name": "Aaron Caswell",
@@ -8,7 +8,7 @@
     "url": "https://github.com/porkchop"
   },
   "dependencies": {
-    "bitcoinjs-lib": "0.2.0"
+    "digibyte-message": "git://github.com/digicontributer/bitcore-message.git#9d9c8ad30158db25f683e2dee746a14a9d7ec8a0"
   },
   "devDependencies": {
     "should": "3.3.1",
@@ -16,17 +16,19 @@
   },
   "keywords": [
     "bitcoin",
+    "digibyte",
     "id",
     "identity",
     "identification",
     "authentication",
     "cryptocurrency",
     "auth",
-    "bitid"
+    "bitid",
+    "digiid"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/porkchop/bitid-js"
+    "url": "https://github.com/digibyte/digiid-js"
   },
   "main": "index",
   "scripts": {

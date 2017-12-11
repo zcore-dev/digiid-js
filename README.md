@@ -1,7 +1,7 @@
-# BitID
+# DigiID
 
-This is the javascript implementation of the BitID authentication protocol.
-Checkout the original Ruby version at https://github.com/bitid/bitid-ruby
+This is the javascript implementation of the DigiID authentication protocol.
+Checkout the original Ruby version at https://github.com/digiid/digiid-ruby
 
 Basically, what the module does is build a message challenge and verifying the signature.
 
@@ -9,20 +9,20 @@ Basically, what the module does is build a message challenge and verifying the s
 
 Add this line to your application's package.json dependencies:
 
-    'bitid': 'latest'
+    'digiid': 'latest'
 
 Or install it yourself as:
 
-    $ npm install bitid
+    $ npm install digiid
 
 ## Usage
 
 ### Challenge
 
-To build a challenge, you need to initialize a `Bitid` object with a `nonce` and a `callback`.
+To build a challenge, you need to initialize a `DigiID` object with a `nonce` and a `callback`.
 
 ```
-var bitid = new Bitid({nonce:nonce, callback:callback});
+var digiid = new DigiID({nonce:nonce, callback:callback});
 ```
 
 `nonce` is a random string associated with the user's session id.
@@ -33,60 +33,60 @@ default the POST call will be done using `https`. If you need to tell the wallet
 `http` then you need to add `unsecure:true`.
 
 ```
-var bitid = new Bitid({nonce:nonce, callback:callback, unsecure:true});
+var digiid = new DigiID({nonce:nonce, callback:callback, unsecure:true});
 ```
 
-Once the `Bitid` object is initialized, you have access to the following methods :
+Once the `DigiID` object is initialized, you have access to the following methods :
 
 ```
-bitid.uri
+digiid.uri
 ```
 
 This is the uri which will trigger the wallet when clicked (or scanned as QRcode). For instance :
 
 ```
-bitid://bitid-demo.herokuapp.com/callback?x=987f20277c015ce7
+digiid://digiid-demo.herokuapp.com/callback?x=987f20277c015ce7
 ```
 
 If you added `unsecure:true` when initializing the object then uri will be like :
 
 ```
-bitid://bitid-demo.herokuapp.com/callback?x=987f20277c015ce7&u=1
+digiid://digiid-demo.herokuapp.com/callback?x=987f20277c015ce7&u=1
 ```
 
 To get the uri as QRcode :
 
 ```
-bitid.qrcode
+digiid.qrcode
 ```
 
 This is actualy an URL pointing to the QRcode image.
 
 ### Verification
 
-When getting the callback from the wallet, you must initialize a `Bitid` object with the received 
+When getting the callback from the wallet, you must initialize a `DigiID` object with the received 
 parameters `address`, `uri`, `signature` as well as the excpected `callback` :
 
 ```
-var bitid = new Bitid(address:address, uri:uri, signature:signature, callback:callback);
+var digiid = new DigiID(address:address, uri:uri, signature:signature, callback:callback);
 ```
 
 You can after call the following methods :
 
 ```
-bitid.nonce
+digiid.nonce
 ```
 
 Return the `nonce`, which would get you the user's session.
 
 ```
-bitid.uriValid()
+digiid.uriValid()
 ```
 
 Returns `true` if the submitted URI is valid and corresponds to the correct `callback` url.
 
 ```
-bitid.signatureValid()
+digiid.signatureValid()
 ```
 
 If returns `true`, then you can authenticate the user's session with `address` (public Bitcoin
@@ -95,15 +95,15 @@ address used to sign the challenge).
 
 ## Integration example
 
-JavaScript application using the bitid lib: https://github.com/porkchop/bitid-js-demo
+JavaScript application using the digiid lib: https://github.com/porkchop/digiid-js-demo
 
-Live demonstration: http://bitid-js-demo.herokuapp.com/
+Live demonstration: http://digiid-js-demo.herokuapp.com/
 
 ## In the Wild
 
-The following projects use bitid-js.
+The following projects use digiid-js.
 
-If you are using bitid-js in a project, app, or module, get on the list below
+If you are using digiid-js in a project, app, or module, get on the list below
 by getting in touch or submitting a pull request with changes to the README.
 
 ### Startups & Apps
@@ -115,7 +115,7 @@ Aaron Caswell
 aaron@captureplay.com
 
 ## Credits
-Eric Larchevêque (The creator of the Bitid protocol and the original Ruby gem this code is based on)
+Eric Larchevêque (The creator of the DigiID protocol and the original Ruby gem this code is based on)
 elarch@gmail.com
 
 ## Contributing

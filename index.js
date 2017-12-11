@@ -1,1 +1,1 @@
-module.exports = require('./lib/bitid');
+module.exports = require('./lib/digiid');
